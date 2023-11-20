@@ -26,6 +26,7 @@ Crea el repositorio
 $ mkdir repo
 
 $ cd repo/
+repo$
 ```
 
 ### git init - Inicializa git
@@ -35,7 +36,6 @@ $ cd repo/
 repo$ git init
 
 Initialized empty Git repository in /home/david/Escritorio/cursos ED/GIT/repo/.git/
-
 
 $ ls -a
 .  ..  .git
@@ -86,7 +86,7 @@ https://git-scm.com/docs/git-status
 ### git status - Estado del directorio de trabajo
 
 ```console
-repo$ git status -s
+$ git status -s
 
 ?? README.md
 
@@ -135,9 +135,9 @@ repo$ git status -s
 Pasar ficheros al área de **staged** = comenzar el seguimiento de ficheros = grabar cambios
 
 ```bash
-repo$ git add README.md 
+$ git add README.md 
 
-repo$ git status
+$ git status
 
 En la rama master
 Commit inicial
@@ -145,8 +145,7 @@ Cambios para hacer commit:
   (use «git rm --cached <archivo>...« para eliminar staged)
 	new file:   README.md
 
-repo$ git status -s
-
+$ git status -s
 A  README.md
 ```
 
@@ -154,16 +153,16 @@ A  README.md
 Modifico un fichero que ya está en el área **staged**:
 
 ```bash
-repo$ gedit README.md &
+$ gedit README.md &
 # edita el fichero desde tu editor de textos
-repo$ git status -s
+$ git status -s
 AM README.md
 ```
 
 #### Diferencias entre el staged y el directorio de trabajo:
 
 ```bash
-repo$ git diff
+$ git diff
 
 diff --git a/README.md b/README.md
 index 1f7c5d5..1187a07 100644
@@ -171,10 +170,9 @@ index 1f7c5d5..1187a07 100644
 +++ b/README.md
 ```
 
-
 ### COMMIT changes - git commit
 
-OJO: así sólo he hecho commit de la versión de README.md que está en el staged area.
+OJO: así sólo he hecho commit de la versión de `README.md` que está en el staged area.
 
 Intenta respetar en los mensajes la convención propuesta en [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#specification)
 
@@ -199,7 +197,7 @@ test:
 ```
 
 ```bash
-repo$ git commit -m "docs(README.md): Crear fichero README en markdown"
+$ git commit -m "docs(README.md): Crear fichero README en markdown"
 [master (root-commit) c0ad5fc] Crear fichero README en markdown
  1 file changed, 22 insertions(+)
  create mode 100644 README.md
@@ -208,12 +206,12 @@ repo$ git commit -m "docs(README.md): Crear fichero README en markdown"
 ### git log
 
 ```bash
-repo$ git log
+$ git log
 commit c0ad5fc72e67dfea3138084628a5fc5dc7c57a2d
 Author: David <gelpiorama@gmail.com>
 Date:   Wed Nov 11 12:54:39 2015 +0100
 
-repo$ git log --tags
+$ git log --tags
 commit c0ad5fc72e67dfea3138084628a5fc5dc7c57a2d
 Author: David <gelpiorama@gmail.com>
 Date:   Wed Nov 11 12:54:39 2015 +0100
@@ -238,9 +236,7 @@ $ git checkout .
 
 ## git diff 
 
-
-Modifica un fichero en seguimiento
-
+Modifico un fichero en seguimiento para crear una diferencia:
 
 ```bash
 $ gedit README.md &
@@ -314,7 +310,7 @@ Diferencias entre dos commits:
 
 `$ git diff c2e338cf3beeb4bf057489e2b6cd84fc0f41f062 a3d4b05f658c3ef382a545106f0264c92e743401`
 
-## DESHACIENDO COSAS
+## Deshaciendo cosas
 
 [Fundamentos-de-Git-Deshaciendo-cosas](https://git-scm.com/book/es/v1/Fundamentos-de-Git-Deshaciendo-cosas)
 
@@ -366,7 +362,7 @@ $ git status -s
 A  tocino.txt
 ```
 
-Añadiendo todos:
+Añado todos:
 
 ```bash
 $ git add .
@@ -377,7 +373,8 @@ A  tocino.txt
 $ git diff
 nada que mostrar: no hay diferencia entre el staged y el directorio de trabajo
 
-$ git diff --staged  #=> diferencia entre el commit y el staged
+$ git diff --staged  
+#=> diferencia entre el commit y el staged
 diff --git a/README.md b/README.md
 index 1f7c5d5..04343ee 100644
 --- a/README.md
@@ -387,7 +384,7 @@ $ diff --git a/tocino.txt b/tocino.txt
 new file mode 100644
 index 0000000..e69de29
 
-# git commit -a => todos los cambios de todos los ficheros en seguimento (en el staged)
+# git commit -a => commit de todos los cambios de todos los ficheros en seguimento (en el staged)
 
 $ git commit -am "Añadir a README instituto y añadir fichero tocino"
 [master a7ccb77] Añadir a README instituto y añadir fichero tocino
@@ -439,7 +436,7 @@ $ git status -s
 $ git rm tocino.txt 
 rm 'tocino.txt'
 
-repo$ git status
+$ git status
 En la rama master
 Cambios para hacer commit:
   (use «git reset HEAD <archivo>...«para eliminar staged)
@@ -468,14 +465,16 @@ https://git-scm.com/book/es/v1/Fundamentos-de-Git-Viendo-el-hist%C3%B3rico-de-co
 
 Listar los ficheros que forman parte de un commit:
 
-```
-$ git ls-tree 5d093dfe1785bbaa72b65a02c1ac2283fc93f957
+```bash
+$ git ls-tree 
+
+5d093dfe1785bbaa72b65a02c1ac2283fc93f957
 100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	panceta.txt
 100644 blob 9183da3f30eb50b4d5103b90462e97f69e7fde07	tocino.txt
 ```
 
 Poner los ficheros en el estado en que estaban en un commit anterior:
-```
+```console
 $ git checkout a3d4b05f658c3ef382a545106f0264c92e743401
 
 Note: checking out 'a3d4b05f658c3ef382a545106f0264c92e743401'.
@@ -489,7 +488,7 @@ If you want to create a new branch to retain commits you create, you may do so (
 HEAD se encuentra en a3d4b05... tocino una linea
 ```
 
-Para volver a poner el HEAD en el último commit:
+Para volver a poner el **HEAD** en el último commit:
 
 ```
 $ git checkout master
@@ -497,16 +496,16 @@ Previous HEAD position was a3d4b05... tocino una linea
 Switched to branch 'master'
 ```
 
-Deshaciendo cosas
+Deshaciendo cosas:
+
 https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things 
 
 He olvidado incluir un fichero en el commit:
 modifico un fichero
 lo añado al staged
 y creo un nuevo commit que reemplaza al anterior:
-```
-git add fichero
-amend del commit
+
+```bash
 $ git commit -m 'initial commit'
 $ git add forgotten_file
 $ git commit --amend
