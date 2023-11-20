@@ -162,7 +162,7 @@ AM README.md
 
 #### Diferencias entre el staged y el directorio de trabajo:
 
-```
+```bash
 repo$ git diff
 
 diff --git a/README.md b/README.md
@@ -366,7 +366,7 @@ $ git status -s
 A  tocino.txt
 ```
 
-Los añado todos:
+Añadiendo todos:
 
 ```bash
 $ git add .
@@ -389,7 +389,7 @@ index 0000000..e69de29
 
 # git commit -a => todos los cambios de todos los ficheros en seguimento (en el staged)
 
-$ git commit -a -m "Añadir a README instituto y añadir fichero tocino"
+$ git commit -am "Añadir a README instituto y añadir fichero tocino"
 [master a7ccb77] Añadir a README instituto y añadir fichero tocino
  2 files changed, 1 insertion(+)
  create mode 100644 tocino.txt
@@ -412,18 +412,16 @@ Date:   Wed Nov 11 12:54:39 2015 +0100
     Crear fichero README en markdown
 ```
 
-
-## DOCUMENTO EN EDICIÓN DE AQUI ABAJO
-
 Me arrepiento y quiero eliminar el fichero tocino del commit.
 
 1º) Elimina el archivo del directorio de trabajo:
 
-repo$ rm tocino.txt 
+`$ rm tocino.txt`
 
 Ahora, git informa de que hemos eliminado un fichero y que debemos llevar este cambio al staged area y así prepararlo para el siguiente commit:
 
-repo$ git status
+```bash
+$ git status
 En la rama master
 Cambios no preparados para el commit:
   (use «git add/rm <archivo>...» para actualizar lo que se ejecutará)
@@ -431,12 +429,14 @@ Cambios no preparados para el commit:
 	deleted:    tocino.txt
 no hay cambios agregados al commit (use «git add» o «git commit -a»)
 
-repo$ git status -s
+$ git status -s
  D tocino.txt
+```
 
-2º) Así que ahora llevamos este cambio -la eliminación de tocino- al staged area:
+2º) Llevamos este cambio -la eliminación de tocino- al staged area:
 
-repo$ git rm tocino.txt 
+```bash
+$ git rm tocino.txt 
 rm 'tocino.txt'
 
 repo$ git status
@@ -445,32 +445,37 @@ Cambios para hacer commit:
   (use «git reset HEAD <archivo>...«para eliminar staged)
 	deleted:    tocino.txt
 
-repo$ git status -s
+$ git status -s
 D  tocino.txt
+```
 
-este es el único cambio a llevar al commit:
+Este es el único cambio a llevar al commit:
 
-repo$ git commit -a -m "eliminar tocino.txt"
+```
+$ git commit -am "eliminar tocino.txt"
 [master ff9104b] eliminar tocino.txt
  1 file changed, 0 insertions(+), 0 deletions(-)
  delete mode 100644 tocino.txt
+```
+
+## Revisando el historial - git log
 
 Veamos el histórico de commits con sus diferencias:
+
 https://git-scm.com/book/es/v1/Fundamentos-de-Git-Viendo-el-hist%C3%B3rico-de-confirmaciones 
 
-$ git log -p -2 => compara los dos últimos commits
+`$ git log -p -2 #=> compara los dos últimos commits`
 
 Listar los ficheros que forman parte de un commit:
 
+```
 $ git ls-tree 5d093dfe1785bbaa72b65a02c1ac2283fc93f957
 100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	panceta.txt
 100644 blob 9183da3f30eb50b4d5103b90462e97f69e7fde07	tocino.txt
-
-
-
+```
 
 Poner los ficheros en el estado en que estaban en un commit anterior:
-
+```
 $ git checkout a3d4b05f658c3ef382a545106f0264c92e743401
 
 Note: checking out 'a3d4b05f658c3ef382a545106f0264c92e743401'.
@@ -482,14 +487,15 @@ If you want to create a new branch to retain commits you create, you may do so (
   git checkout -b <new-branch-name>
 
 HEAD se encuentra en a3d4b05... tocino una linea
-
+```
 
 Para volver a poner el HEAD en el último commit:
 
+```
 $ git checkout master
 Previous HEAD position was a3d4b05... tocino una linea
 Switched to branch 'master'
-
+```
 
 Deshaciendo cosas
 https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things 
@@ -506,12 +512,14 @@ se abre el editor pico para permitirte editar el mensaje del último commit
 you’re not so much fixing it as replacing it entirely with a new, improved commit that pushes the old commit out of the way
 The obvious value to amending commits is to make minor improvements to your last commit, without cluttering your repository history with commit messages of the form, “Oops, forgot to add a file” or “Darn, fixing a typo in last commit”.
 
-Renombrar un fichero en seguimiento
+### Renombrar un fichero en seguimiento
 
-$ git mv README.txt README
+`$ git mv README.txt README`
 
 esto es equivalente a ejecutar algo así:
+```
 $ mv README.txt README
 $ git rm README.txt
 $ git add README
-La única diferencia real es que mv es un comando en vez de tres
+```
+La única diferencia real es que mv es un comando en vez de tres.
