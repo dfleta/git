@@ -500,17 +500,21 @@ Switched to branch 'master'
 Deshaciendo cosas
 https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things 
 
+He olvidado incluir un fichero en el commit:
 modifico un fichero
 lo añado al staged
+y creo un nuevo commit que reemplaza al anterior:
+```
 git add fichero
 amend del commit
 $ git commit -m 'initial commit'
 $ git add forgotten_file
 $ git commit --amend
-se abre el editor pico para permitirte editar el mensaje del último commit
+# se abre el editor indicado en la configuración de git para permitirte editar el mensaje del último commit
 
 you’re not so much fixing it as replacing it entirely with a new, improved commit that pushes the old commit out of the way
 The obvious value to amending commits is to make minor improvements to your last commit, without cluttering your repository history with commit messages of the form, “Oops, forgot to add a file” or “Darn, fixing a typo in last commit”.
+```
 
 ### Renombrar un fichero en seguimiento
 
