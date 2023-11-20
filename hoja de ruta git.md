@@ -1,4 +1,4 @@
-Hoja de ruta GIT
+Hoja de ruta git
 ================
 
 Este documento ejemplifica el flujo de trabajo con git, es decir, aquellas tareas más usuales desde que comienzas a programar hasta que te sientas.
