@@ -1,4 +1,4 @@
-Hoja de ruta GIT
+Hoja de ruta git
 ================
 
 Este documento ejemplifica el flujo de trabajo con git, es decir, aquellas tareas más usuales desde que comienzas a programar hasta que te sientas.
@@ -160,7 +160,8 @@ Cambios para hacer commit:
   (use «git rm --cached <archivo>...« para eliminar staged)
 	new file:   README.md
 
-$ git status -s
+repo$ git status -s
+
 A  README.md
 ```
 
@@ -408,8 +409,7 @@ A  tocino.txt
 $ git diff
 nada que mostrar: no hay diferencia entre el staged y el directorio de trabajo
 
-$ git diff --staged  
-#=> diferencia entre el commit y el staged
+$ git diff --staged  #=> diferencia entre el commit y el staged
 diff --git a/README.md b/README.md
 index 1f7c5d5..04343ee 100644
 --- a/README.md
@@ -419,7 +419,7 @@ $ diff --git a/tocino.txt b/tocino.txt
 new file mode 100644
 index 0000000..e69de29
 
-# git commit -a => commit de todos los cambios de todos los ficheros en seguimento (en el staged)
+# git commit -a => commit de commit de todos los cambios de todos los ficheros en seguimento (en el staged)
 
 $ git commit -am "Añadir a README instituto y añadir fichero tocino"
 [master a7ccb77] Añadir a README instituto y añadir fichero tocino
@@ -539,8 +539,9 @@ He olvidado incluir un fichero en el commit:
 modifico un fichero
 lo añado al staged
 y creo un nuevo commit que reemplaza al anterior:
-
-```bash
+```
+git add fichero
+amend del commit
 $ git commit -m 'initial commit'
 $ git add forgotten_file
 $ git commit --amend
