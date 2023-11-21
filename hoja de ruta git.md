@@ -16,6 +16,21 @@ Tutorial / curso git & github:
 https://try.github.io/levels/1/challenges/1
 
 
+## Configura git
+
+```bash
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
+# Linux /MacOS
+git config --global core.editor "/usr/bin/pico"
+
+# Windows 
+git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe"
+
+git config --list
+```
+
 ## Obteniendo un repositorio Git
 https://git-scm.com/book/es/v1/Empezando-Configurando-Git-por-primera-vez 
 
@@ -170,6 +185,14 @@ index 1f7c5d5..1187a07 100644
 +++ b/README.md
 ```
 
+#### Diferencias entre ramas
+
+
+```bash
+$ git diff master develop
+$ git diff master develop archivo
+```
+
 ### COMMIT changes - git commit
 
 OJO: así sólo he hecho commit de la versión de `README.md` que está en el staged area.
@@ -203,7 +226,7 @@ $ git commit -m "docs(README.md): Crear fichero README en markdown"
  create mode 100644 README.md
 ```
 
-### git log
+### git log / show
 
 ```bash
 $ git log
@@ -218,6 +241,18 @@ Date:   Wed Nov 11 12:54:39 2015 +0100
 
     Crear fichero README en markdown
 ```
+
+
+Historial con colores:
+
+`git log --pretty=format:"%h %s" --graph`
+
+donde %s es el asunto.
+
+Ver los detalles de un fichero en el commit:
+
+`git show porco`
+
 
 ### UNDO changes - git checkout
 
@@ -526,3 +561,39 @@ $ git rm README.txt
 $ git add README
 ```
 La única diferencia real es que mv es un comando en vez de tres.
+
+##  gitignore
+
+Archivo oculto en el directorio raiz del proyecto.
+
+Leer descripción en la página 126 del libro.
+
+Buscar un template para el lenguaje + framework + proyecto que estés desarrollando, p.e., en github.
+
+Chequear qué ficheros quedan fuera de seguimiento:
+
+`git status --ignored`
+
+## Ramas
+
+Leer la propuesta de gitflow.
+
+```bash
+git branch # listar las ramas
+
+git branch develop # crear rama
+
+git branch -r # remotas
+
+git branch -a #todas
+
+git checkout develop # cambiar de rama
+
+git checkout -b develop # crear y cambiar
+
+# Desde la rama en la que quieres incorporar los cambios de develop
+git merge --no-ff develop
+
+git branch -D develop # elimina la rama
+```
+
