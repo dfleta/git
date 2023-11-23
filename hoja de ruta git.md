@@ -16,6 +16,21 @@ Tutorial / curso git & github:
 https://try.github.io/levels/1/challenges/1
 
 
+## Configura git
+
+```bash
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
+# Linux /MacOS
+git config --global core.editor "/usr/bin/pico"
+
+# Windows 
+git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe"
+
+git config --list
+```
+
 ## Obteniendo un repositorio Git
 https://git-scm.com/book/es/v1/Empezando-Configurando-Git-por-primera-vez 
 
@@ -145,7 +160,8 @@ Cambios para hacer commit:
   (use «git rm --cached <archivo>...« para eliminar staged)
 	new file:   README.md
 
-$ git status -s
+repo$ git status -s
+
 A  README.md
 ```
 
@@ -168,6 +184,14 @@ diff --git a/README.md b/README.md
 index 1f7c5d5..1187a07 100644
 --- a/README.md
 +++ b/README.md
+```
+
+#### Diferencias entre ramas
+
+
+```bash
+$ git diff master develop
+$ git diff master develop archivo
 ```
 
 ### COMMIT changes - git commit
@@ -203,7 +227,7 @@ $ git commit -m "docs(README.md): Crear fichero README en markdown"
  create mode 100644 README.md
 ```
 
-### git log
+### git log / show
 
 ```bash
 $ git log
@@ -218,6 +242,18 @@ Date:   Wed Nov 11 12:54:39 2015 +0100
 
     Crear fichero README en markdown
 ```
+
+
+Historial con colores:
+
+`git log --pretty=format:"%h %s" --graph`
+
+donde %s es el asunto.
+
+Ver los detalles de un fichero en el commit:
+
+`git show porco`
+
 
 ### UNDO changes - git checkout
 
@@ -373,8 +409,7 @@ A  tocino.txt
 $ git diff
 nada que mostrar: no hay diferencia entre el staged y el directorio de trabajo
 
-$ git diff --staged  
-#=> diferencia entre el commit y el staged
+$ git diff --staged  #=> diferencia entre el commit y el staged
 diff --git a/README.md b/README.md
 index 1f7c5d5..04343ee 100644
 --- a/README.md
@@ -384,7 +419,7 @@ $ diff --git a/tocino.txt b/tocino.txt
 new file mode 100644
 index 0000000..e69de29
 
-# git commit -a => commit de todos los cambios de todos los ficheros en seguimento (en el staged)
+# git commit -a => commit de commit de todos los cambios de todos los ficheros en seguimento (en el staged)
 
 $ git commit -am "Añadir a README instituto y añadir fichero tocino"
 [master a7ccb77] Añadir a README instituto y añadir fichero tocino
@@ -504,8 +539,9 @@ He olvidado incluir un fichero en el commit:
 modifico un fichero
 lo añado al staged
 y creo un nuevo commit que reemplaza al anterior:
-
-```bash
+```
+git add fichero
+amend del commit
 $ git commit -m 'initial commit'
 $ git add forgotten_file
 $ git commit --amend
@@ -526,3 +562,78 @@ $ git rm README.txt
 $ git add README
 ```
 La única diferencia real es que mv es un comando en vez de tres.
+
+##  gitignore
+
+Archivo oculto en el directorio raiz del proyecto.
+
+Leer descripción en la página 126 del libro.
+
+Buscar un template para el lenguaje + framework + proyecto que estés desarrollando, p.e., en github.
+
+Chequear qué ficheros quedan fuera de seguimiento:
+
+`git status --ignored`
+
+## Ramas
+
+Leer la propuesta de gitflow.
+
+```bash
+git branch # listar las ramas
+
+git branch develop # crear rama
+
+git branch -r # remotas
+
+git branch -a #todas
+
+git checkout develop # cambiar de rama
+
+git checkout -b develop # crear y cambiar
+
+# Desde la rama en la que quieres incorporar los cambios de develop
+git merge --no-ff develop
+
+git branch -D develop # elimina la rama
+```
+
+## Stash Changes
+
+https://www.freecodecamp.org/news/git-stash-explained/
+
+Para cambiar de rama sin necesidad de incluir los cambios en un commit, y no perderlos al ejecutar `git checkout rama` los salvamos con un stash (una especie de borrador o bloc de notas con ideas).
+
+Crear el stash:
+
+`git stash save "optional message for yourself"`
+
+Ver los cambios Stashed
+
+```bash
+$ git stash list
+
+$ git stash show -p stash@{0}
+```
+
+Recuperar /aplicar los cambios Stashed
+
+```bash
+$ git stash apply stash@{0}
+
+git stash pop stash@{0} = igual que apply pero saca los cambios de la lista
+```
+
+Borrar los cambios Stashed
+
+`git stash drop STASH-NAME`
+
+Vaciar /limpiar el stash por completo:
+
+`git stash clear``
+
+`-all` guarda los ficheros no trackeados también, así podemos cambiar de rama sin necesidad de meterlos en seguimiento.
+
+`$ git stash save -a "check_modules"`
+
+
