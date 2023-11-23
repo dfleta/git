@@ -31,21 +31,6 @@ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe"
 git config --list
 ```
 
-## Configura git
-
-```bash
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
-
-# Linux /MacOS
-git config --global core.editor "/usr/bin/pico"
-
-# Windows 
-git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe"
-
-git config --list
-```
-
 ## Obteniendo un repositorio Git
 https://git-scm.com/book/es/v1/Empezando-Configurando-Git-por-primera-vez 
 
@@ -554,9 +539,9 @@ He olvidado incluir un fichero en el commit:
 modifico un fichero
 lo añado al staged
 y creo un nuevo commit que reemplaza al anterior:
-```
+```bash
 git add fichero
-amend del commit
+# amend del commit
 $ git commit -m 'initial commit'
 $ git add forgotten_file
 $ git commit --amend
@@ -615,6 +600,8 @@ git branch -D develop # elimina la rama
 
 ## Stash Changes
 
+Howto en freecodecamp:
+
 https://www.freecodecamp.org/news/git-stash-explained/
 
 Para cambiar de rama sin necesidad de incluir los cambios en un commit, y no perderlos al ejecutar `git checkout rama` los salvamos con un stash (una especie de borrador o bloc de notas con ideas).
@@ -626,15 +613,15 @@ Crear el stash:
 Ver los cambios Stashed
 
 ```bash
-$ git stash list
+git stash list
 
-$ git stash show -p stash@{0}
+git stash show -p stash@{0}
 ```
 
 Recuperar /aplicar los cambios Stashed
 
 ```bash
-$ git stash apply stash@{0}
+git stash apply stash@{0}
 
 git stash pop stash@{0} = igual que apply pero saca los cambios de la lista
 ```
@@ -645,9 +632,9 @@ Borrar los cambios Stashed
 
 Vaciar /limpiar el stash por completo:
 
-`git stash clear``
+`git stash clear`
 
-`-all` guarda los ficheros no trackeados también, así podemos cambiar de rama sin necesidad de meterlos en seguimiento.
+`-all` guarda los ficheros no trackeados también, así podemos cambiar de rama sin necesidad de meterlos en seguimiento:
 
 `$ git stash save -a "check_modules"`
 
