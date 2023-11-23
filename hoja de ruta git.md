@@ -1,6 +1,10 @@
 Hoja de ruta git
 ================
 
+En este gist:
+
+https://gist.github.com/dfleta/09731cdb282b8f16f9382b177b0bd3a1
+
 Este documento ejemplifica el flujo de trabajo con git, es decir, aquellas tareas más usuales desde que comienzas a programar hasta que te sientas.
 
 Downloads:
