@@ -31,6 +31,21 @@ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe"
 git config --list
 ```
 
+## Configura git
+
+```bash
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
+# Linux /MacOS
+git config --global core.editor "/usr/bin/pico"
+
+# Windows 
+git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe"
+
+git config --list
+```
+
 ## Obteniendo un repositorio Git
 https://git-scm.com/book/es/v1/Empezando-Configurando-Git-por-primera-vez 
 
@@ -597,4 +612,43 @@ git merge --no-ff develop
 
 git branch -D develop # elimina la rama
 ```
+
+## Stash Changes
+
+https://www.freecodecamp.org/news/git-stash-explained/
+
+Para cambiar de rama sin necesidad de incluir los cambios en un commit, y no perderlos al ejecutar `git checkout rama` los salvamos con un stash (una especie de borrador o bloc de notas con ideas).
+
+Crear el stash:
+
+`git stash save "optional message for yourself"`
+
+Ver los cambios Stashed
+
+```bash
+$ git stash list
+
+$ git stash show -p stash@{0}
+```
+
+Recuperar /aplicar los cambios Stashed
+
+```bash
+$ git stash apply stash@{0}
+
+git stash pop stash@{0} = igual que apply pero saca los cambios de la lista
+```
+
+Borrar los cambios Stashed
+
+`git stash drop STASH-NAME`
+
+Vaciar /limpiar el stash por completo:
+
+`git stash clear``
+
+`-all` guarda los ficheros no trackeados también, así podemos cambiar de rama sin necesidad de meterlos en seguimiento.
+
+`$ git stash save -a "check_modules"`
+
 
