@@ -36,7 +36,8 @@ git config --list
 ```
 
 ## Obteniendo un repositorio Git
-https://git-scm.com/book/es/v1/Empezando-Configurando-Git-por-primera-vez 
+
+https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Configurando-Git-por-primera-vez
 
 
 Crea el repositorio
