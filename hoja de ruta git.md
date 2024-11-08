@@ -13,7 +13,7 @@ https://git-scm.com/downloads
 
 Instalando Git:
 
-https://git-scm.com/book/es/v1/Empezando-Instalando-Git 
+https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git 
 
 Tutorial / curso git & github:
 
