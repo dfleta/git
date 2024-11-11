@@ -470,6 +470,16 @@ $ git status -s
  D tocino.txt
 ```
 
+Si me arrepiento de eliminarlo y quiero recuperarlo:
+
+```bash
+% git restore tocino.txt
+```
+o
+```bash
+% git checkout tocino.txt
+```
+
 2º) Llevamos este cambio -la eliminación de tocino- al staged area:
 
 ```bash
