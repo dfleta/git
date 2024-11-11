@@ -505,6 +505,10 @@ $ git commit -am "eliminar tocino.txt"
  delete mode 100644 tocino.txt
 ```
 
+#### Eliminar un fichero del staged area:
+
+`$ git restore --staged tocino.txt`
+
 ## Revisando el historial - git log
 
 Veamos el histórico de commits con sus diferencias:
