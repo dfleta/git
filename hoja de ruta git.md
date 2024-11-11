@@ -377,7 +377,7 @@ y volvemos a tener README en el directorio de trabajo -con seguimiento- pero fue
 
 Si quiero descartar todos los cambios hechos DESDE el último commit en README.md
 
-`$ git checkout --README.md`
+`$ git checkout README.md`
 
 
 Crear un fichero, meterlo en el commit y luego eliminarlo del commit:
