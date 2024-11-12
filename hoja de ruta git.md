@@ -554,6 +554,13 @@ Deshaciendo cosas:
 
 https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things 
 
+If your latest commit **is not published yet (not pushed to an upstream repository)** then you can amend your commit.
+
+To specify the commit message inline:
+
+`git commit --amend -m "New commit message"`
+
+
 He olvidado incluir un fichero en el commit:
 modifico un fichero
 lo añado al staged
