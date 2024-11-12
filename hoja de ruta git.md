@@ -661,7 +661,7 @@ En github hacemos esto para cambiar el nombre de la rama a `main`.
 Para configurar git globalmente de modo que el nombre de la rama inicial al ejecutar `git init` ser `main`:
 
 ```sh
-% git config --global init.defaultBranch <name>`
+% git config --global init.defaultBranch <name>
 % git config --list | grep init 
 init.defaultbranch=main
 ```
