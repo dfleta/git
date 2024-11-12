@@ -554,12 +554,14 @@ Deshaciendo cosas:
 
 https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things 
 
-If your latest commit **is not published yet (not pushed to an upstream repository)** then you can amend your commit.
+If your latest commit **is not published yet (not pushed to an upstream repository)** then you can your commit.
 
 To specify the commit message inline:
 
 `git commit --amend -m "New commit message"`
 
+El ID del commit sigue siendo el mismo.
+Consultar el manual para chequear cómo corregir el nombre de la autora del commit.
 
 He olvidado incluir un fichero en el commit:
 modifico un fichero
@@ -576,6 +578,9 @@ $ git commit --amend
 you’re not so much fixing it as replacing it entirely with a new, improved commit that pushes the old commit out of the way
 The obvious value to amending commits is to make minor improvements to your last commit, without cluttering your repository history with commit messages of the form, “Oops, forgot to add a file” or “Darn, fixing a typo in last commit”.
 ```
+
+Efectivamente, el ID del commit no coincide con el que tenía antes de ejecutar git commit --amend.
+
 
 ### Renombrar un fichero en seguimiento
 
