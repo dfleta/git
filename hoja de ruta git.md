@@ -703,6 +703,10 @@ origin/main
   remotes/origin/main
 ```
 
+Para eliminar la rema remota:
+
+`git push origin --delete develop`
+
 Para eliminar la rama local (ojo, no ha de tener cambios sin mergear):
 
 `git branch -d <branchName>`
