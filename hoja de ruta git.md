@@ -617,6 +617,94 @@ git merge --no-ff develop
 git branch -D develop # elimina la rama
 ```
 
+To verify which remote branches your local branches are tracking:
+
+`git branch -vv`
+
+`git branch -a`
+
+Crear una rama local `develop` con el mismo nombre que la remota `develop`:
+
+`git checkout -t origin/develop`
+
+o
+
+`git checkout --track -b develop origin/develop`
+
+```sh
+% git branch -vv                
+* develop 6ec61df [origin/develop] docs(README): Incluir encabezado h4
+  main    f12b6f5 [origin/main] Merge branch 'develop'
+```
+
+Cambiar a la rama previa:
+
+`git checkout -`
+
+Pushear una rama local al remoto:
+
+Using -u (short for --set-upstream) will set up the tracking information during the push.
+
+`git push -u <REMOTENAME> <BRANCHNAME>`
+`git push -u origin develop`
+
+By default, git pushes the local branch to a remote branch with the same name. Sino:
+
+`git push <REMOTENAME> <LOCALBRANCHNAME>:<REMOTEBRANCHNAME>`
+
+Rename the branch you have checked out:
+`git branch -m new_branch_name`
+
+En github hacemos esto para cambiar el nombre de la rama a `main`.
+`git branch -m main`
+
+Para configurar git globalmente de modo que el nombre de la rama inicial al ejecutar `git init` ser `main`:
+
+```sh
+% git config --global init.defaultBranch <name>`
+% git config --list | grep init 
+init.defaultbranch=main
+```
+
+Eliminar ramas remotas:
+
+`git branch --delete --remotes <remote>/<branch>`
+
+o abreviando:
+
+```sh
+% git branch -dr origin/develop
+
+Eliminada la rama de rastreo remota origin/develop (era 6ec61df).
+% git branch -vv
+  develop 6ec61df [origin/develop: desaparecido] docs(README): Incluir encabezado h4
+* main    a88c0b8 [origin/main] Merge branch 'develop'
+
+% git branch -r
+origin/HEAD -> origin/main
+origin/main
+
+% git branch -a 
+  develop
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+```
+
+Para eliminar la rama local (ojo, no ha de tener cambios sin mergear):
+
+`git branch -d <branchName>`
+
+To delete a branch, even if it has unmerged changes:
+
+`git branch -D <branchName>`
+
+
+Diferencias entre ramas:
+`git diff main develop`
+
+
+
 ## Stash Changes
 
 Howto en freecodecamp:
