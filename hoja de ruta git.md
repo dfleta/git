@@ -658,6 +658,7 @@ Pushear una rama local al remoto:
 Using -u (short for --set-upstream) will set up the tracking information during the push.
 
 `git push -u <REMOTENAME> <BRANCHNAME>`
+
 `git push -u origin develop`
 
 By default, git pushes the local branch to a remote branch with the same name. Sino:
@@ -667,7 +668,7 @@ By default, git pushes the local branch to a remote branch with the same name. S
 Rename the branch you have checked out:
 `git branch -m new_branch_name`
 
-En github hacemos esto para cambiar el nombre de la rama a `main`.
+En github hacemos esto para cambiar el nombre de la rama a `main`:
 `git branch -m main`
 
 Para configurar git globalmente de modo que el nombre de la rama inicial al ejecutar `git init` ser `main`:
@@ -678,7 +679,7 @@ Para configurar git globalmente de modo que el nombre de la rama inicial al ejec
 init.defaultbranch=main
 ```
 
-Eliminar ramas remotas:
+Eliminar ramas remotas del seguimiento de nuestro proyecto (las que listamos con `git branch -vv` o `git branch -r`):
 
 `git branch --delete --remotes <remote>/<branch>`
 
@@ -703,7 +704,7 @@ origin/main
   remotes/origin/main
 ```
 
-Para eliminar la rema remota:
+Para eliminar la rema en el repositorio remoto:
 
 `git push origin --delete develop`
 
