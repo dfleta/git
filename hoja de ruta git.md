@@ -747,7 +747,8 @@ Recuperar /aplicar los cambios Stashed
 ```bash
 git stash apply stash@{0}
 
-git stash pop stash@{0} = igual que apply pero saca los cambios de la lista
+# igual que apply pero saca los cambios de la lista
+git stash pop stash@{0}
 ```
 
 Borrar los cambios Stashed
@@ -758,7 +759,7 @@ Vaciar /limpiar el stash por completo:
 
 `git stash clear`
 
-`-all` guarda los ficheros no trackeados también, así podemos cambiar de rama sin necesidad de meterlos en seguimiento:
+La opción `-all` guarda los ficheros no trackeados también, así podemos cambiar de rama sin necesidad de meterlos en seguimiento:
 
 `$ git stash save -a "check_modules"`
 
