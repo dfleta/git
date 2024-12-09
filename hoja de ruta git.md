@@ -704,7 +704,7 @@ origin/main
   remotes/origin/main
 ```
 
-Para eliminar la rema en el repositorio remoto:
+Para eliminar la rama en el repositorio remoto:
 
 `git push origin --delete develop`
 
@@ -720,6 +720,30 @@ To delete a branch, even if it has unmerged changes:
 Diferencias entre ramas:
 `git diff main develop`
 
+### Renombrar rama master a main en local y remoto
+
+Desde la app web de github renombrar la rama master a main y establecerla como rama por defecto.
+
+Obtendremos el siguiente mensaje:
+
+```
+The default branch has been renamed!
+master is now named main
+If you have a local clone, you can update it by running the following commands.
+
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+```
+
+`git branch -m master main` renombra la rama local `master` a `main`
+
+`git fetch origin` para traer la rama remota
+
+`git branch -u origin/main main` para trackear la rama remota con la local
+
+`git remote set-head origin -a` para poner el HEAD en origin/main, según se observa en la salida del comando `git branch -r`
 
 
 ## Stash Changes
